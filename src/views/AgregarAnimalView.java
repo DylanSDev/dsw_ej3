@@ -53,15 +53,15 @@ public class AgregarAnimalView extends javax.swing.JFrame {
         for (Especie e : Persistencia.getEspecies()) {
             if (e.getNombre().equals(especieSeleccionada)) {
                 txtTipoAlimentacion.setText(e.getTipoAlimentacion().toString());
-                
+
                 if (e.getTipoAlimentacion() == TipoAlimentacion.CARNIVORO) {
-                txtValorFijo.setText("0");
-                txtValorFijo.setEnabled(false);
-            } else {
-                txtValorFijo.setEnabled(true);
-                txtValorFijo.setText(""); // O podés dejar el valor anterior si preferís
-            }
-                
+                    txtValorFijo.setText("0");
+                    txtValorFijo.setEnabled(false);
+                } else {
+                    txtValorFijo.setEnabled(true);
+                    txtValorFijo.setText(""); // O podés dejar el valor anterior si preferís
+                }
+
                 break;
             }
         }
@@ -398,7 +398,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
             int edad = Integer.parseInt(txtEdad.getText());
             double peso = Double.parseDouble(txtPeso.getText());
 
-            // Buscar especie
+            // Buscamos especie
             String nombreEspecie = cbEspecie.getSelectedItem().toString();
             Especie especieSeleccionada = null;
             for (Especie e : Persistencia.getEspecies()) {
@@ -411,7 +411,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                 throw new Exception("No se encontró la especie.");
             }
 
-            // Buscar sector
+            // Buscamos sector
             String sectorNombre = cbSector.getSelectedItem().toString(); // Ej: "Sector 2"
             int numeroSector = Integer.parseInt(sectorNombre.split(" ")[1]);
             Sector sectorSeleccionado = null;
@@ -425,7 +425,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
                 throw new Exception("No se encontró el sector.");
             }
 
-            // Buscar país
+            // Buscamos país
             String nombrePais = cbPais.getSelectedItem().toString();
             Pais paisSeleccionado = null;
             for (Pais p : Persistencia.getPaises()) {
@@ -449,8 +449,8 @@ public class AgregarAnimalView extends javax.swing.JFrame {
 
             Persistencia.getAnimales().add(nuevo);
             JOptionPane.showMessageDialog(this, "Animal guardado con éxito.");
-            this.dispose(); // cerrar la ventana actual
-            new MenuPrincipalView().setVisible(true); // abrir menú principal
+            this.dispose();
+            new MenuPrincipalView().setVisible(true);
 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error al guardar: " + ex.getMessage());
@@ -458,7 +458,7 @@ public class AgregarAnimalView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();  // Cierra esta ventana
+        this.dispose();
         new MenuPrincipalView().setVisible(true);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
