@@ -61,6 +61,10 @@ public class Persistencia {
         return especies;
     }
 
+    public static ArrayList<Pais> getPaises() {
+        return paises;
+    }
+
     public static double getTotalComida(TipoAlimentacion tipoAlimentacion) {
         double total = 0;
         for(Mamifero animal : animales){
