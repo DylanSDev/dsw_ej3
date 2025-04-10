@@ -19,6 +19,7 @@ public class ListarAnimalesView extends javax.swing.JFrame {
     public ListarAnimalesView() {
         initComponents();
         listarAnimales();
+        setLocationRelativeTo(null);
     }
     private void listarAnimales(){
         ArrayList<AnimalViewModel> animales = Controlador.getAnimales();
